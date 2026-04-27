@@ -14,11 +14,11 @@ def run_tools():
         messagebox.showwarning("Error", "Fill in all the boxes first.")
         return
 
-    # 2. Setup the folder
+    # 2. Setup folder
     full_path = os.path.join(base_path, proj_name)
     os.makedirs(full_path, exist_ok=True)
 
-    # 3. The background logic (NESTED inside run_tools so it can see the variables)
+    # 3. Background logic
     def execute():
         log_box.insert(tk.END, f"[*] Project Folder: {full_path}\n")
         log_box.see(tk.END)
@@ -64,7 +64,7 @@ def run_tools():
         file_200 = f"{full_path}/httpx_200_clean.txt"
         subprocess.run(f"httpx -l {raw_combined} -mc 200 -o {file_200} -silent -nc", shell=True)
         
-        # Output 2: All with Status (httpx_all.txt)
+        # Output 2: All with Status
         file_all_status = f"{full_path}/httpx_all.txt"
         subprocess.run(f"httpx -l {raw_combined} -status-code -o {file_all_status} -silent -nc", shell=True)
         
@@ -76,10 +76,10 @@ def run_tools():
         log_box.insert(tk.END, f"Check: {full_path}\n")
         log_box.see(tk.END)
 
-    # 4. START THE THREAD (This makes the 'black box' actually update!)
+    # 4. START THE THREAD 
     threading.Thread(target=execute).start()
 
-# --- UI Setup (The '95 Aesthetic) ---
+# UI setup
 root = tk.Tk()
 root.title("Bloodhound Automator v1.1")
 root.geometry("550x550")
@@ -103,7 +103,7 @@ url_entry.pack()
 run_btn = tk.Button(root, text="START HUNTING", command=run_tools, bg="#c0c0c0", relief="raised", bd=3, width=20, height=2)
 run_btn.pack(pady=15)
 
-# The "Black Box" Terminal Output
+# Terminal output UI
 log_box = tk.Text(root, height=15, width=70, bg="black", fg="#00ff00", font=("Consolas", 9))
 log_box.pack(pady=5)
 
