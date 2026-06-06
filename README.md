@@ -1,4 +1,4 @@
 Interface for Web recon tools
 (Some paths are hard-coded)
 
-<img width="702" height="687" alt="image" src="https://github.com/user-attachments/assets/72911a17-f136-4f94-857c-9f32d8063223" />
+<img width="736" height="720" alt="image" src="https://github.com/user-attachments/assets/b412aa8c-c805-4891-a57d-c93c0bb763ce" />
